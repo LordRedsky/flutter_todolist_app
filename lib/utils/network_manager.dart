@@ -5,7 +5,7 @@ import '../model/todo_item.dart';
 class NetworkManager {
   late final Dio _dio;
   final baseUrl =
-      'https://d7ed-2400-9800-c35-4b2b-18e6-7aef-c270-a40c.ngrok-free.app/';
+      'https://ac2c-2400-9800-c35-4b2b-18e6-7aef-c270-a40c.ngrok-free.app';
   NetworkManager() {
     _dio = Dio();
   }
@@ -34,6 +34,8 @@ class NetworkManager {
   }
 
   Future<void> deleteData(TodoItem item) async {
-    await _dio.delete('$baseUrl/todos/${item.id}');
+    await _dio.delete(
+      '$baseUrl/todos/${item.id}',
+    );
   }
 }
