@@ -7,7 +7,12 @@ class TodoItem {
   final String description;
   final bool isDone;
 
-  TodoItem(this.id, this.title, this.description, this.isDone);
+  TodoItem({
+    this.id,
+    required this.title,
+    required this.description,
+    required this.isDone,
+  });
   // final bool completed;
 
   Map<String, dynamic> toMap() {
@@ -21,10 +26,10 @@ class TodoItem {
 
   factory TodoItem.fromMap(Map<String, dynamic> map) {
     return TodoItem(
-      map['id'] != null ? map['id'] as int : null,
-      map['title'] as String,
-      map['description'] as String,
-      map['isDone'] as bool,
+      id: map['id']?.toInt(),
+      title: map['title'] as String,
+      description: map['description'] as String,
+      isDone: map['isDone'] as bool,
     );
   }
 
@@ -40,10 +45,10 @@ class TodoItem {
     bool? isDone,
   }) {
     return TodoItem(
-      id ?? this.id,
-      title ?? this.title,
-      description ?? this.description,
-      isDone ?? this.isDone,
+      id: id ?? this.id,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      isDone: isDone ?? this.isDone,
     );
   }
 
