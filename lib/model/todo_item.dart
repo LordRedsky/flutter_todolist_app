@@ -30,7 +30,8 @@ class TodoItem {
 
   String toJson() => json.encode(toMap());
 
-  factory TodoItem.fromJson(String source) => TodoItem.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory TodoItem.fromJson(String source) =>
+      TodoItem.fromMap(json.decode(source) as Map<String, dynamic>);
 
   TodoItem copyWith({
     int? id,
