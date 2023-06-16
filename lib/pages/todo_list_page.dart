@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todolist_app/model/todo_item.dart';
 import 'package:flutter_todolist_app/pages/form_page.dart';
+import 'package:flutter_todolist_app/pages/todo_done.dart';
 import 'package:flutter_todolist_app/utils/network_manager.dart';
 import 'package:flutter_todolist_app/widget/item_widget.dart';
 
@@ -66,7 +67,13 @@ class _TodoListPageState extends State<TodoListPage> {
                   style: textTheme.bodyMedium,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const TodoDonePage();
+                      },
+                    ));
+                  },
                   child: Text(
                     'Sudah diselesaikan $totalDone',
                     style: const TextStyle(

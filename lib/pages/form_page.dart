@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_todolist_app/model/todo_item.dart';
 import 'package:flutter_todolist_app/utils/network_manager.dart';
@@ -67,7 +65,6 @@ class _FormPageState extends State<FormPage> {
                     await NetworkManager().postData(item);
                     Navigator.pop(context);
                   }
-
                 },
                 child: const Text('Simpan'),
               )
