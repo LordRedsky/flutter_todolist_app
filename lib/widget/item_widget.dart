@@ -62,7 +62,10 @@ class ItemWidget extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
                 ),
-                onPressed: () {},
+                onPressed: () async {
+                  await NetworkManager().deleteData(todoItem);
+                  handleRefresh();
+                },
                 child: const Icon(Icons.delete_forever),
               ),
           ],
