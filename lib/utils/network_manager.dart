@@ -5,7 +5,7 @@ import '../model/todo_item.dart';
 class NetworkManager {
   late final Dio _dio;
   final baseUrl =
-      'https://ac2c-2400-9800-c35-4b2b-18e6-7aef-c270-a40c.ngrok-free.app';
+      'https://5fdb-2400-9800-c35-2413-e56f-c8bc-eca6-c874.ngrok-free.app';
   NetworkManager() {
     _dio = Dio();
   }

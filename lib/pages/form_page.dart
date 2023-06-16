@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_todolist_app/model/todo_item.dart';
 import 'package:flutter_todolist_app/utils/network_manager.dart';
@@ -34,6 +36,7 @@ class _FormPageState extends State<FormPage> {
                 decoration: const InputDecoration(hintText: 'title'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
+                    print('title kosong');
                     return 'Tidak boleh kosong ya!';
                   }
                   return null;
@@ -53,7 +56,7 @@ class _FormPageState extends State<FormPage> {
               ),
               const SizedBox(height: 10),
               ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   final item = TodoItem(
                     title: titleController.text,
                     description: descController.text,
@@ -61,8 +64,10 @@ class _FormPageState extends State<FormPage> {
                   );
 
                   if (item.title.isNotEmpty && item.description.isNotEmpty) {
-                    NetworkManager().postData(item);
+                    await NetworkManager().postData(item);
+                    Navigator.pop(context);
                   }
+
                 },
                 child: const Text('Simpan'),
               )

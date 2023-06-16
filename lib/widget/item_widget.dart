@@ -1,15 +1,20 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import 'package:flutter_todolist_app/utils/network_manager.dart';
+
 import '../model/todo_item.dart';
 
 class ItemWidget extends StatelessWidget {
   const ItemWidget({
     Key? key,
     required this.todoItem,
+    required this.handleRefresh,
   }) : super(key: key);
 
   final TodoItem todoItem;
+  // ignore: prefer_typing_uninitialized_variables
+  final Function() handleRefresh;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +48,12 @@ class ItemWidget extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
                 ),
-                onPressed: () {},
+                onPressed: () async {
+                  await NetworkManager().updateData(
+                    todoItem.copyWith(isDone: true),
+                  );
+                  handleRefresh();
+                },
                 child: const Icon(Icons.check),
               ),
             const SizedBox(width: 8),

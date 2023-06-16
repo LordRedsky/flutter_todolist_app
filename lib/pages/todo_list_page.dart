@@ -90,6 +90,7 @@ class _TodoListPageState extends State<TodoListPage> {
                             itemBuilder: (context, index) {
                               return ItemWidget(
                                 todoItem: todos[index],
+                                handleRefresh: refreshData,
                               );
                             },
                             itemCount: todos.length,
@@ -99,10 +100,12 @@ class _TodoListPageState extends State<TodoListPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
+        onPressed: () async {
+          await Navigator.push(context, MaterialPageRoute(builder: (context) {
             return const FormPage();
           }));
+
+          refreshData();
         },
         child: const Icon(Icons.add),
       ),
