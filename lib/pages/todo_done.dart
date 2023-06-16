@@ -31,11 +31,10 @@ class _TodoDonePageState extends State<TodoDonePage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Finished List'),
+        title: const Text('Finished List'),
       ),
       body: Container(
         padding: const EdgeInsets.all(20),

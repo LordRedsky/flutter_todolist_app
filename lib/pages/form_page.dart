@@ -19,7 +19,7 @@ class _FormPageState extends State<FormPage> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tambahkan Todo List'),
+        title: const Text('Tambahkan Todo List'),
       ),
       body: Container(
         padding: const EdgeInsets.all(20),
@@ -34,7 +34,6 @@ class _FormPageState extends State<FormPage> {
                 decoration: const InputDecoration(hintText: 'title'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    print('title kosong');
                     return 'Tidak boleh kosong ya!';
                   }
                   return null;

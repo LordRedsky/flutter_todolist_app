@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import 'package:flutter_todolist_app/utils/network_manager.dart';
@@ -13,7 +12,6 @@ class ItemWidget extends StatelessWidget {
   }) : super(key: key);
 
   final TodoItem todoItem;
-  // ignore: prefer_typing_uninitialized_variables
   final Function() handleRefresh;
 
   @override
